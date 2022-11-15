@@ -1,0 +1,24 @@
+<%- include('partials/header') %>
+
+<div class="container">
+  <div class="jumbotron centered">
+    <!-- <i class="fas fa-key fa-6x"></i> -->
+    <i class="fas fa-calendar-check fa-6x"></i>
+    <h1 class="display-3">Make an Appointment</h1>
+    <p class="secret-text">Please submit your appointment's details!</p>
+
+    <form action="/submit" method="POST">
+
+      <div class="form-group">
+        <input type="text" class="form-control text-center" name="secret" placeholder="What's your name?">
+        <input type="text" class="form-control text-center" name="gender" placeholder="What's your gender?">
+        <input type="text" class="form-control text-center" name="date" placeholder="When do you want to do the test?">
+        <input type="text" class="form-control text-center" name="location" placeholder="Where do you want to do the test?">
+      </div>
+      <button type="submit" class="btn btn-dark">Submit</button>
+    </form>
+
+
+  </div>
+</div>
+<%- include('partials/footer') %>
