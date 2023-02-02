@@ -67,37 +67,37 @@ passport.deserializeUser(function(user, done) {
   done(null, user);
 });
 
-// passport.use(new GoogleStrategy({
-//     clientID: process.env.CLIENT_ID_GOOGLE,
-//     clientSecret: process.env.CLIENT_SECRET_GOOGLE,
-//     callbackURL: "http://localhost:3000/auth/google/secrets"
-//   },
-//   function(accessToken, refreshToken, profile, cb) {
-//     User.findOrCreate({
-//       username: profile.displayName,
-//       googleId: profile.id
-//     }, function(err, user) {
-//       return cb(err, user);
-//     });
-//   }
-// ));
+passport.use(new GoogleStrategy({
+    clientID: process.env.CLIENT_ID_GOOGLE,
+    clientSecret: process.env.CLIENT_SECRET_GOOGLE,
+    callbackURL: "http://localhost:3000/auth/google/secrets"
+  },
+  function(accessToken, refreshToken, profile, cb) {
+    User.findOrCreate({
+      username: profile.displayName,
+      googleId: profile.id
+    }, function(err, user) {
+      return cb(err, user);
+    });
+  }
+));
 
-// passport.use(
-//   new GitHubStrategy({
-//       clientID: process.env.CLIENT_ID_GITHUB,
-//       clientSecret: process.env.CLIENT_SECRET_GITHUB,
-//       callbackURL: "http://www.localhost:3000/auth/github/secrets",
-//     },
-//     function(accessToken, refreshToken, profile, cb) {
-//       User.findOrCreate({
-//         username: profile.displayName,
-//         githubId: profile.id
-//       }, function(err, user) {
-//         return cb(err, user);
-//       });
-//     }
-//   )
-// );
+passport.use(
+  new GitHubStrategy({
+      clientID: process.env.CLIENT_ID_GITHUB,
+      clientSecret: process.env.CLIENT_SECRET_GITHUB,
+      callbackURL: "http://www.localhost:3000/auth/github/secrets",
+    },
+    function(accessToken, refreshToken, profile, cb) {
+      User.findOrCreate({
+        username: profile.displayName,
+        githubId: profile.id
+      }, function(err, user) {
+        return cb(err, user);
+      });
+    }
+  )
+);
 
 // passport.use(new TwitterStrategy({
 //     consumerKey: process.env.CLIENT_ID_TWITTER,
